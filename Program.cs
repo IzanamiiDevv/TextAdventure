@@ -13,16 +13,8 @@ namespace TextAdventure
             App.Load();
             App.OnStart();
             Console.WriteLine("Hello World");
-            User_Command.Input(Commanddd());
-            Command.Command.CustomConsoleInput("");
+            User_Command.Input(Command.Command.Commanddd());
         }
-
-    private static string Commanddd()
-    {
-        // string input = CustomConsoleInput("➜ ");
-        // return input ?? "";
-        return "";
-    }
     }
 }
 
