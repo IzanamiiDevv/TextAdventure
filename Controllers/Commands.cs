@@ -1,12 +1,22 @@
 using System;
+using TextAdventure;
 
 namespace User_Commands
 {
     class User_Command
     {
-        public static void Test()
+        public static void Input(string command)
         {
-            Console.WriteLine("Ow No");
+            switch (command.ToLower())
+            {
+                case "exit":
+                Console.Beep();
+                break;
+                default:
+                Console.WriteLine("Reload");
+                Program.Main();
+                break;
+            }
         }
     }
 }

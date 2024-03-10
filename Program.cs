@@ -1,11 +1,22 @@
 ﻿using System;
 using User_Commands;
+using Startup;
 
-class Program
+namespace TextAdventure
 {
-    public static void Main(string[] args)
+    class Program
     {
-        User_Command.Test();
+        public static void Main()
+        {
+            App.Load();
+        App.OnStart();
         Console.WriteLine("Hello World");
+        User_Command.Input(Command());
     }
+
+    private static string Command()
+    {
+        return Console.ReadLine() ?? "";
+    }
+}
 }
