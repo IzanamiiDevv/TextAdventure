@@ -1,5 +1,5 @@
 <h1 align="center">Project InDevelopment</h1>
-<h2>Open for Contributtion!</h2>
+<h2 align="center">Open for Contributtion!</h2>
 <hr>
 <h1 align="center">TextAdventure</h1>
  "Embark on an Epic Journey: Choose Your Destiny in TextAdventure – A Captivating Text-Based Roleplay Game where Your Choices Shape the Story!"
