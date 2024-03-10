@@ -1,8 +1,9 @@
 using System;
 using System.Text;
 using TextAdventure;
+using Events;
 
-namespace Command
+namespace Commands
 {
     class Command
     {
@@ -35,12 +36,6 @@ namespace Command
             }
             return inputBuilder.ToString();
         }
-
-        public static string Commanddd()
-        {
-            string input = CustomConsoleInput("./Player ➜ ");
-            return input ?? "";
-        }
     }
     
     namespace User
@@ -52,11 +47,11 @@ namespace Command
                 switch (command.ToLower())
                 {
                     case "exit":
-                        Console.Beep();
+                        Event.Exit();
                         break;
                     default:
                         Console.WriteLine("Reload");
-                        Program.Main();
+                        Program.Step();
                         break;
                 }
             }

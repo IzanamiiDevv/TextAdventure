@@ -1,4 +1,5 @@
 using System;
+using Player;
 
 namespace Startup
 {
@@ -14,7 +15,8 @@ namespace Startup
         }
         public static void OnStart()
         {
-            Console.WriteLine("The Program is Start");
+            Console.WriteLine("Enter Your Player Name");
+            Player.Player.Name = Console.ReadLine() ?? "Player";
         }
     }
 }

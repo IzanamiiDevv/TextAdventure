@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Text;
-using Command.User;
+using Commands.User;
 using Startup;
-using Command;
+using Commands;
+using Player;
 
 namespace TextAdventure
 {
@@ -10,22 +11,21 @@ namespace TextAdventure
     {
         public static void Main()
         {
-            App.Load();
-            App.OnStart();
-            Console.WriteLine("Hello World");
-            User_Command.Input(Command.Command.Commanddd());
+            Load();
         }
 
         public static void Load()
         {
             //Run Once
+            App.Load();
+            Step();
         }
 
         public static void Step()
         {
             //Run PerLoad
+            Console.WriteLine("Hi");
+            User_Command.Input(Player.Player.UI());
         }
     }
 }
-
-//Fix the Layout and Fix the Command Module
