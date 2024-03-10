@@ -15,6 +15,16 @@ namespace TextAdventure
             Console.WriteLine("Hello World");
             User_Command.Input(Command.Command.Commanddd());
         }
+
+        public static void Load()
+        {
+            //Run Once
+        }
+
+        public static void Step()
+        {
+            //Run PerLoad
+        }
     }
 }
 
