@@ -18,7 +18,6 @@ namespace TextAdventure
         {
             //Run Once
             App.Load();
-            Step();
         }
 
         public static void Step()
