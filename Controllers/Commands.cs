@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using TextAdventure;
 using Events;
+using Enemy;
 
 namespace Commands
 {
@@ -52,7 +53,7 @@ namespace Commands
                             Event.Exit();
                             break;
                         case "battle":
-                            //Declaring a Battle
+                            //Battle EntryPoint
                             Event.Battle(100, 100);
                             break;
                         default:
@@ -69,11 +70,21 @@ namespace Commands
                             break;
                         case "attack":
                             int[] newStats = Attack(Phealth, Ehealth);
+                            if(newStats[0] < 0 || newStats[1] < 0)
+                            {
+                                Event.Exit();
+                                break;
+                            }
                             Event.Battle(newStats[0], newStats[1]);
                             break;
                         case "defend":
-                            Defend();
-                            Event.Battle(Phealth, Ehealth);
+                            int[] newStats1 = Defend(Phealth, Ehealth);
+                            if (newStats1[0] < 0 || newStats1[1] < 0)
+                            {
+                                Event.Exit();
+                                break;
+                            }
+                            Event.Battle(newStats1[0], newStats1[1]);
                             break;
                         default:
                             Console.WriteLine("Reload");
@@ -85,18 +96,33 @@ namespace Commands
 
             public static int[] Attack(int player,int enemy)
             {
+
+                //YourTurn
                 int PlayerHP = player;
                 int EnemyHP = enemy;
+                Random random = new Random();
 
-                EnemyHP -= 3;
+                EnemyHP -= (random.Next(1,11) == 1) ? 9: 3;
 
-                int[] newStats = { PlayerHP, EnemyHP };
+                //EnemyTurn
+                int[] newValue = Enemy.Enemy.Turn(PlayerHP, EnemyHP);
+                int[] newStats = { newValue[0], newValue[1] };
                 return newStats;
             }
 
-            public static void Defend()
+            public static int[] Defend(int player,int enemy)
             {
+                //YourTurn
+                int PlayerHP = player;
+                int EnemyHP = enemy;
+                Random random = new Random();
 
+                PlayerHP += (random.Next(1, 11) == 1) ? 5 : 2;
+
+                //EnemyTurn
+                int[] newValue = Enemy.Enemy.Turn(PlayerHP, EnemyHP);
+                int[] newStats1 = { newValue[0], newValue[1] };
+                return newStats1;
             }
         }
     }

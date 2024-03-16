@@ -16,9 +16,12 @@ namespace Startup
         }
         public static void OnLoad(){
             Console.Title = "TextAdventure";
+            Console.Write("Welcome to ");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("Welcome to Text Adventure!");
+            Console.Write("Text Adventure");
             Console.ResetColor();
+            Console.Write("!");
+            Console.WriteLine();
             Console.WriteLine("--------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"          {start}         ");

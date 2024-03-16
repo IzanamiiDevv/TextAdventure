@@ -48,3 +48,46 @@ namespace Events
         }
     }
 }
+
+
+namespace Enemy
+{
+    class Enemy
+    {
+        public static int[] Turn(int player, int enemy)
+        {
+            Random random = new Random();
+
+            if(random.Next(0, 2) == 0)
+            {
+                return Attack(player, enemy);
+            }
+
+            return Defend(player, enemy);
+        }
+
+        public static int[] Attack(int player, int enemy)
+        {
+            int PlayerHP = player;
+            int EnemyHP = enemy;
+            Random random = new Random();
+
+            PlayerHP -= (random.Next(1, 11) == 1) ? 9 : 3;
+            Console.WriteLine("Enemy Attacked");
+            int[] newState = { PlayerHP, EnemyHP };
+            return newState;
+        }
+
+        public static int[] Defend(int player, int enemy)
+        {
+            int PlayerHP = player;
+            int EnemyHP = enemy;
+            Random random = new Random();
+
+            EnemyHP += (random.Next(1, 11) == 1) ? 5 : 2;
+            Console.WriteLine("Enemy Defend");
+            int[] newState = { player, enemy};
+            return newState;
+        }
+    }
+}
