@@ -23,8 +23,8 @@ namespace TextAdventure
         public static void Step()
         {
             //Run PerLoad
-            Console.WriteLine("Hi");
-            User_Command.Input(Player.Player.UI());
+            Console.WriteLine("Menu");
+            User_Command.Input(Player.Player.UI(),"menu",0,0);
         }
     }
 }

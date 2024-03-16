@@ -42,17 +42,42 @@ namespace Commands
     {
         class User_Command
         {
-            public static void Input(string command)
+            public static void Input(string command,string state,int Phealth, int Ehealth)
             {
-                switch (command.ToLower())
+                if(state == "menu")
                 {
-                    case "exit":
-                        Event.Exit();
-                        break;
-                    default:
-                        Console.WriteLine("Reload");
-                        Program.Step();
-                        break;
+                    switch (command.ToLower())
+                    {
+                        case "exit":
+                            Event.Exit();
+                            break;
+                        case "battle":
+                            //Declaring a Battle
+                            Event.Battle(100, 100);
+                            break;
+                        default:
+                            Console.WriteLine("Reload");
+                            Program.Step();
+                            break;
+                    }
+                } else
+                {
+                    switch (command.ToLower())
+                    {
+                        case "exit":
+                            Event.Exit();
+                            break;
+                        case "attack":
+                            Event.Battle(Phealth, Ehealth);
+                            break;
+                        case "defend":
+                            Event.Battle(Phealth, Ehealth);
+                            break;
+                        default:
+                            Console.WriteLine("Reload");
+                            Event.Battle(Phealth,Ehealth);
+                            break;
+                    }
                 }
             }
         }
