@@ -15,7 +15,7 @@ namespace Events
             Console.ResetColor();
         }
 
-        public static void Battle(int enemyHealth, int playerHealth)
+        public static void Battle(int playerHealth, int enemyHealth)
         {
             //Loop for Battle
             Console.WriteLine("Battle");
@@ -44,7 +44,6 @@ namespace Events
             Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine("--------------------------");
-
             User_Command.Input(Player.Player.UI(),state,playerHealth,enemyHealth);
         }
     }

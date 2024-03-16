@@ -68,9 +68,11 @@ namespace Commands
                             Event.Exit();
                             break;
                         case "attack":
-                            Event.Battle(Phealth, Ehealth);
+                            int[] newStats = Attack(Phealth, Ehealth);
+                            Event.Battle(newStats[0], newStats[1]);
                             break;
                         case "defend":
+                            Defend();
                             Event.Battle(Phealth, Ehealth);
                             break;
                         default:
@@ -79,6 +81,22 @@ namespace Commands
                             break;
                     }
                 }
+            }
+
+            public static int[] Attack(int player,int enemy)
+            {
+                int PlayerHP = player;
+                int EnemyHP = enemy;
+
+                EnemyHP -= 3;
+
+                int[] newStats = { PlayerHP, EnemyHP };
+                return newStats;
+            }
+
+            public static void Defend()
+            {
+
             }
         }
     }
